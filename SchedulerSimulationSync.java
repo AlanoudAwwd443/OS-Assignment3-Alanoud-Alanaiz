@@ -65,9 +65,9 @@ class SharedStats {
         statsLock.lock();
         try {
         // TODO Feature 2: protect this critical section
-        int tmp = completedProcessCount;       // 1) read
+        int tmp = contextSwitchCount;       // 1) read
         RaceWindow.pause();                 //    <- another thread can read the SAME value here
-        completedProcessCount  = tmp + 1;}
+        contextSwitchCount   = tmp + 1;}
           finally{
                 statsLock.unlock();
           }
@@ -76,21 +76,26 @@ class SharedStats {
 
     public static void incrementCompletedProcess() {
         // TODO Feature 2: protect this critical section
+       statsLock.lock();
+    try {
         int tmp = completedProcessCount;
         RaceWindow.pause();
         completedProcessCount = tmp + 1;
+    } finally {
+        statsLock.unlock();
     }
+}
 
     public static void addServiceTime(int ms) {
         // TODO Feature 2: protect this critical section
-        statsLock.lock();
-try {
-long tmp = totalServiceTime;
-RaceWindow.pause();
-totalServiceTime = tmp + ms;
-} finally {
-statsLock.unlock();
-}
+         statsLock.lock();
+    try {
+        long tmp = totalServiceTime;
+        RaceWindow.pause();
+        totalServiceTime = tmp + ms;
+    } finally {
+        statsLock.unlock();
+    }
 }
 
     // Readers must also be protected (a read in the middle of an update is not safe either)
