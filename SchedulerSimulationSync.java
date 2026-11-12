@@ -83,10 +83,15 @@ class SharedStats {
 
     public static void addServiceTime(int ms) {
         // TODO Feature 2: protect this critical section
-        long tmp = totalServiceTime;
-        RaceWindow.pause();
-        totalServiceTime = tmp + ms;
-    }
+        statsLock.lock();
+try {
+long tmp = totalServiceTime;
+RaceWindow.pause();
+totalServiceTime = tmp + ms;
+} finally {
+statsLock.unlock();
+}
+}
 
     // Readers must also be protected (a read in the middle of an update is not safe either)
     public static int getCompletedProcessCount() {
