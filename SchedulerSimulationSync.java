@@ -101,6 +101,12 @@ class SharedStats {
     // Readers must also be protected (a read in the middle of an update is not safe either)
     public static int getCompletedProcessCount() {
         // TODO Feature 2: protect this read
+        statsLock.lock();
+    try {
+        return completedProcessCount;
+    } finally {
+        statsLock.unlock();
+    }
         return completedProcessCount;
     }
 
