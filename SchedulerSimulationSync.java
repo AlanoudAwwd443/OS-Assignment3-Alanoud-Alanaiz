@@ -122,8 +122,13 @@ class SharedStats {
 
     public static long getTotalServiceTime() {
         // TODO Feature 2: protect this read
+    statsLock.lock();
+    try {
         return totalServiceTime;
+    } finally {
+        statsLock.unlock();
     }
+}
 }
 
 // ⚠️ THE READY QUEUE: shared by ALL the CPU threads ⚠️
