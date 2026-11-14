@@ -214,14 +214,14 @@ I reviewed the code and the chapters to make sure of my understanding
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [40 hours]
 
 **Most challenging part**:
-
+part 2 coding 
 **Most interesting learning**:
-
+part 3 it was fun anwsering these question
 **What I would do differently next time**:
-
+Start early
 ---
 
 # Part B: Reflection (0.5 mark)
