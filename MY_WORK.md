@@ -32,11 +32,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [AL-anoud awwd AL-anaiz] |
+| **Student ID** | [443830523] |
+| **University Email** | [443830523]@std.psau.edu.sa |
+| **GitHub Username** | [Alanoudawwd443] |
+| **Repository Link** | [(https://github.com/AlanoudAwwd443/OS-Assignment3-Alanoud-Alanaiz.git)] |
  
 ---
 
@@ -132,69 +132,69 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
+### Entry 1 - [11 Novomer 9:11]
 **What I did**:
-
+Link the account
 **Details**:
-
+Link the account to Visual Studio Code and change the code to the university number
 **Challenges**:
-
+There are no challenges, I done this before
 **Solution**:
-
+see YouTube Education 
 **Time spent**:
-
+30 min
 ---
 
-### Entry 2 - [Date and Time]
+### Entry 2 - [11 Novomer 10:30 pm]
 **What I did**:
-
+Modify the code
 **Details**:
-
+adding ( Ready Queue Lock,Statistics Locks,Counting Semaphore)
 **Challenges**:
-
+It took longer than I expected
 **Solution**:
-
+YouTube videos and websites
 **Time spent**:
-
+2 days
 ---
 
-### Entry 3 - [Date and Time]
+### Entry 3 - [14 Novomer 1:00 am ]
 **What I did**:
-
+Run the code
 **Details**:
-
+I had trouble running the code. The code is correct, but the program won't start.
 **Challenges**:
-
+code can't run
 **Solution**:
-
+I searched online and found out that the program probably saved my program in a different file than its own, so I closed the program and reopened it, then the code worked.
 **Time spent**:
-
+2 hours
 ---
 
-### Entry 4 - [Date and Time]
+### Entry 4 - [14 Novomer 4:00 am ]
 **What I did**:
-
+Answering test questions
 **Details**:
-
+I answered the questions. The answers weren't difficult, but the questions were confusing at first, though they are easy.
 **Challenges**:
-
+Technical Answers The questions were hard to understand
 **Solution**:
-
+Using a translator to understand the question
 **Time spent**:
-
+1 hours
 ---
 
-### Entry 5 - [Date and Time]
+### Entry 5 - [14 Novomer 5:00 am]
 **What I did**:
-
+ Video Demonstration
 **Details**:
-
+I filmed the video And I did what was required
 **Challenges**:
-
+There are no challenges
 **Solution**:
-
+I reviewed the code and the chapters to make sure of my understanding
 **Time spent**:
-
+1 hours
 ---
 
 ### Entry 6 - [Optional - Date and Time]
@@ -240,7 +240,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[While working on this assignment, I learned that race conditions happen when multiple threads access the same shared data at the same time. This caused incorrect values in the shared statistics before synchronization was added. To fix this, I used ReentrantLock to protect the critical sections and ensure that only one thread updates the shared data at a time. I also used a semaphore to make CPUs wait for available processes instead of continuously checking the queue. The most surprising thing was that the program sometimes produced different results even though the code was the same. This assignment helped me understand the importance of synchronization in concurrent programs.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -248,7 +248,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The hardest part of this assignment was using the semaphore correctly. At first, I did not know where to put acquire() and release() in the code. This caused some problems when I tested the program. After reading the code and trying different solutions, I understood how the semaphore works. It helps the CPUs wait until there is a process in the ready queue. In the end, I was able to make the program run correctly without busy waiting.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -256,7 +256,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[To overcome these challenges, I read the assignment instructions carefully. I tested the program after every small change. When I found an error, I checked the code step by step to find the problem. I also ran the program several times to make sure the results were correct. This helped me understand the code better and complete the assignment successfully.]
 
 ## Question 4: Where can synchronization concepts be applied in real-world applications?
 
@@ -264,7 +264,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Synchronization is used in many real\-world applications. Banks use it to protect account balances during transactions. Online booking systems use it to prevent two users from booking the same seat. Websites use it to update shared counters such as views and likes correctly. These applications use locks or semaphores to avoid errors and keep data correct.]
 
 ### Optional: What would you like to learn more about?
 
@@ -298,20 +298,26 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In my original starter run, the program did not finish correctly and showed a WATCHDOG message. This happened because multiple CPU threads were accessing shared variables at the same time without synchronization. For example, CPU-1 and CPU-2 could both read the same value of `contextSwitchCount`, pause at `RaceWindow.pause()`, and then write back the same updated value. As a result, one update is lost and the final statistics can become incorrect. The same problem can happen on real computers because threads may run at the same time, and race conditions are difficult to detect because they do not happen consistently in every run.]
 
 Verification block of the **original starter**:
 ```
-[Paste the verification block (or the exception/watchdog message) of the starter here]
+[WATCHDOG: the simulation did not finish (26 s). A process was lost, or a CPU is blocked forever, or the 'completed' counter lost an update.]
 ```
 
 Verification block of **my final version**:
 ```
-[Paste the verification block of your final version here (all lines ✔)]
+[
+??? VERIFICATION (expected values are computed from YOUR seed) ???
+  Context switches (quanta executed)     expected ??       observed ??       ?
+  Completed processes                    expected ??       observed ??       ?
+  Total service time (ms)                expected ?????    observed ?????    ?
+  Busy-waiting polls (must be 0)         expected ?        observed ?        ?
+  ? All shared values are consistent.]
 ```
 
 **Explanation of the timeline:**
-[Explain the lost update step by step.]
+[In the starter code, a race condition could happen when two CPU threads access the same shared variable at the same time. For example, CPU-1 reads contextSwitchCount and then pauses at RaceWindow.pause(). Before CPU-1 writes the new value, CPU-2 reads the same value and also pauses. CPU-1 writes the updated value, then CPU-2 writes the same value again, causing one update to be lost. This lost update can make the final statistics incorrect and is difficult to detect because it does not happen in every execution.]
 
 ## Question 2: Critical Sections and Lock Granularity
 
@@ -321,10 +327,14 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[I protected the shared statistics using `statsLock` and the ready queue using `queueLock`. I used one lock for all statistics because it is simpler and easier to manage. These locks provide mutual exclusion by allowing only one thread to access the critical section at a time.]
 
 | Critical section (variable / method) | Lock used | Why it needs protection |
-|---|---|---|
+|incrementContextSwitch()|statsLock|Protects the shared context switch counter from race conditions|
+|incrementCompletedProcess()|statsLock|Protects the completed process counter from incorrect updates|
+|addServiceTime()|statsLock|Protects the shared service time value|
+ReadyQueue.add()|queueLock|Multiple CPUs can add processes at the same time|
+ReadyQueue.poll()|queueLock|Multiple CPUs can remove processes at the same time|
 | [e.g., `ReadyQueue.poll()`] | [lock name] | [reason] |
 | [...] | [...] | [...] |
 
@@ -336,7 +346,7 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In the starter code, CPUs used busy waiting by checking the queue repeatedly when it was empty. In my final version, I used a semaphore to make the CPUs wait until a process became available. The semaphore starts with a value of 0 because the ready queue is initially empty.]
 
 ## Question 4: Classical Problems and Deadlock
 
@@ -347,24 +357,25 @@ Verification block of **my final version**:
 **Your Answer:** *(3-5 sentences)*
 
 **Classical problem and roles**:
-[Name the problem; who is the producer, who is the consumer?]
+[This problem is similar to the Producer-Consumer problem. The processes act as producers when they are added back to the ready queue, and the CPUs act as consumers when they take processes from the queue.]
 
 **Semaphores for a bounded queue (name and initial value)**:
-[Name the three semaphores and their initial values.]
+[the three semaphores would be empty = K, full = 0, and mutex = 1.]
 
 **Deadlock scenario and prevention**:
-[Describe the scenario and the necessary condition you would break.]
+[ A deadlock can occur if a thread locks the mutex and then waits on a semaphore while another thread needs the same mutex to continue. In this case, both threads wait forever. To prevent deadlock, we should avoid circular wait by acquiring resources in a consistent order.]
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1. Race conditions and critical sections.
+2. Using locks and semaphores for synchronization.
+3.The difference between busy waiting and blocking with a semaphore.
+
 
 **Concepts I need to study more:**
-1.
-2.
+1.Deadlock conditions and prevention methods.
+2.Fairness and lock granularity in concurrent systems.
 
 ---
 
